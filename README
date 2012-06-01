@@ -1,1 +1,34 @@
-View the single file in repo for description. To install put in the /expressionengine/third_party/eefing_var/ folder.
+Description:
+EEfing vars is a way to use dynamic variables within EE. Unlike EE variables EEfing variables 
+can be set and then modified. See example below.
+
+Installation:
+To install put in the /expressionengine/third_party/eefing_var/ folder.
+
+Usage/Examples:
+
+To set an eeffing var:
+{exp:eeffing_var:set name="language" value="en"}
+
+To change an eeffing var (same pageload):
+{exp:eeffing_var:set name="language" value="fr"}
+
+To retrieve an eeffing var:
+{exp:eeffing_var:get name="language"} // output = fr
+
+OR
+
+{exp:eeffing_var:get name="language" parse="inward"}
+{exp:weblog:entries weblog="pages-{eeffing_var}"} // weblog="pages-fr"
+Some code {eeffing_var} // "Some code fr"
+{/exp:weblog:entries}
+{/exp:eeffing_var:get}
+
+OR
+
+{exp:eeffing_var:get name="language"}
+{if eeffing_var == "fr"}
+Some code
+{/if}
+{/exp:eeffing_var:get}
+
